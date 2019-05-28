@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.hc.book.checking.ui.custom.CustomActionBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:center_title="图书详情"
+        custom:right_image_vis="@integer/GONE" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nothing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="未找到此书，请重新扫码获取..."
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/thing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_e8e8e8" />
+
+                <com.hc.book.checking.ui.custom.BookInfoItem
+                    android:id="@+id/book_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    custom:left_content="图书名称:"
+                    custom:right_content="斗罗大陆" />
+
+                <com.hc.book.checking.ui.custom.BookInfoItem
+                    android:id="@+id/book_author"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    custom:left_content="作者:"
+                    custom:right_content="唐家三少" />
+
+                <com.hc.book.checking.ui.custom.BookInfoItem
+                    android:id="@+id/book_isbn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    custom:left_content="ISBN号:"
+                    custom:right_content="978755026393" />
+
+                <com.hc.book.checking.ui.custom.BookInfoItem
+                    android:id="@+id/book_genre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    custom:left_content="索书号:"
+                    custom:right_content="TU241.5/" />
+
+                <com.hc.book.checking.ui.custom.BookInfoItem
+                    android:id="@+id/press_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    custom:left_content="出版社:"
+                    custom:right_content="唐家三少出版社" />
+
+                <com.hc.book.checking.ui.custom.BookInfoItem
+                    android:id="@+id/page_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    custom:left_content="页数:"
+                    custom:right_content="999999" />
+
+                <com.hc.book.checking.ui.custom.BookInfoItem
+                    android:id="@+id/book_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    custom:left_content="册数:"
+                    custom:right_content="1" />
+
+                <com.hc.book.checking.ui.custom.BookInfoItem
+                    android:id="@+id/book_prise"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    custom:left_content="单价:"
+                    custom:right_content="666" />
+
+                <com.hc.book.checking.ui.custom.BookInfoItem
+                    android:id="@+id/import_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    custom:left_content="导入时间:"
+                    custom:right_content="2019-04-11 08:00:00" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

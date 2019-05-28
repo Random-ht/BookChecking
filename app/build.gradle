@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' //GreenDao
+apply plugin: 'com.jakewharton.butterknife'//butterKnife
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.hc.book.checking"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs{
+        key{
+            keyAlias 'tscc'
+            keyPassword '123456'
+            storeFile file('key.jks')
+            storePassword '123456'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.key
+        }
+        debug {
+            signingConfig signingConfigs.key
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+greendao {
+    schemaVersion 1
+    daoPackage 'com.hc.book.checking.entity.greenDao'
+    targetGenDir 'src/main/java'
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:design:27.1.1'
+    compile 'com.android.support:appcompat-v7:27.1.1'
+    compile 'com.android.support:support-annotations:27.1.1'
+    testCompile 'junit:junit:4.12'
+    compile files('libs/poi-3.9-20121203.jar')
+    //本地数据库  GreenDao
+    compile 'org.greenrobot:greendao:3.2.2'
+    //zxing
+    compile 'com.journeyapps:zxing-android-embedded:3.5.0'
+    //查看数据库
+    compile 'com.facebook.stetho:stetho:1.5.0'
+    compile 'com.google.code.gson:gson:2.6.2'
+    //权限管理
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+    //butterKnife
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-19'
+}
